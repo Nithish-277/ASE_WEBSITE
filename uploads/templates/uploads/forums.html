@@ -1,0 +1,40 @@
+{% extends "uploads/base.html" %}
+{% load static %}
+{% block style_base %}
+  <link rel="stylesheet" type="text/css" href="{% static 'uploads/css/forums.css' %}">
+{% endblock %}
+
+{% block content%}
+	<div class="header" id="myHeader">
+  <h1></h1>
+</div>
+	
+<div class="container">
+<div class="card"><div>
+  <div class="card-body">
+    <h6 class="card-title">
+     Medicare is always looking to make things easier for you. Our aim is to provide our customers with the best doctors, constant care, and reliable support to clarify all the doubts regarding any type of medical issues.Would you like to have a question ? please click the link below.</h6>
+    <button type="button" class="btn btn-basic"><a href="{% url 'post-create' %}">Ask Your Question</a></button>
+    <h6>Click here to view the answers given by the doctors for the given medical issue.</h6>
+    <a href="{%url 'blog-home' %}" class="card-link">Answers here!</a>
+</div>
+  </div>
+</div>
+<div class="footer text-right"><a href="#">Recent activity</a></div>
+<div class="alert alert-info corner">
+<h4><b>How it Works?</b></h4>
+<!-- <ul style="padding:10; margin-left:20px; padding:0px 0 10px 25px;">
+<li> <style type="margin-left:10px"></style> Once you post your health issue, it is shared with our doctor panel.</li>
+<li>A doctor will send medical advice to your health issue and reports after assessing it.</li>
+<li>You can follow up with the same doctor.</li>
+</ul> -->
+<ul>
+  <li>Once you post your health issue, it is shared with our doctor panel.</li>
+  <li>A doctor will send medical advice to your health issue and reports after assessing it.</li>
+  <li>You can follow up with the same doctor.</li>
+</ul>
+<p &nbsp;&nbsp;&nbsp>Many specialized doctors from various specialities evaluate and give personalized online medical advice to patients.</p>
+<p>There were many specialists in the Medicare give medical advice to thousands of patients online every day.</p>
+<p>Ask a Doctor Online now and get your medical questions answered instantly.</p>
+</div>
+{% endblock %}

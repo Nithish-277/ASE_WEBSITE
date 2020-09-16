@@ -1,0 +1,161 @@
+{% extends "uploads/base.html" %}
+
+{% load static %}
+
+{% block style_base %}
+	<link rel="stylesheet" type="text/css" href="{% static 'uploads/css/homepage.css' %}">
+{% endblock %}
+	
+{% block content %}
+{% for message in messages %}
+<div class="alert {{ message.tags }} alert-dismissible" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	{{ message }}
+</div>
+{% endfor %}
+<div style="font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";">
+	<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel" style="margin-bottom: 30px;" >
+	  <ol class="carousel-indicators">
+	    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+	    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+	    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+	    <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+	  </ol>
+	  <div class="carousel-inner">
+	  	<div class="carousel-item active" data-interval="2000">
+	      <img src="{% static 'uploads/css/welcome.jpg' %}" class="d-block w-100" alt="..." style="height: 675px; width: auto;">
+	      <div class="carousel-caption d-block" style="color: #dc3545">
+	        <h3 style="font-size: 500%;font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji, sans-serif; font-weight: lighter;"> Medicare</h3>
+	        <p>A well organised form of your Medical Records</p>
+	      </div>
+	    </div>
+	    <div class="carousel-item"  data-interval="2000">
+	      <img src="{% static 'uploads/css/pills.jpg' %}" class="d-block w-100" alt="..." style="height: 675px; width: auto;">
+	      <div class="carousel-caption  d-block" style="color: #dc3545">
+	        <h3> Always Being Notified </h3>
+	        <p>Sticking to your medication routine (or medication adherence) means taking your medications as prescribed<br> – the right dose, at the right time, in the right way and frequency.</p>
+	      </div>
+	    </div>
+	    <div class="carousel-item"  data-interval="2000">
+	      <img src="{% static 'uploads/css/reports.jpg' %}" class="d-block w-100" alt="..." style="height: 675px; width: auto;">
+	      <div class="carousel-caption d-block" style="color: #dc3545">
+	        <h3>Stay Organised Keep Organised</h3>
+	        <p> In Today's busy line it is common for a person to miss files and reports <br> But there's a solution for everything . so here's solution for trouble</p>
+	      </div>
+	    </div>
+	    <div class="carousel-item" data-interval="2000">
+	      <img src="{% static 'uploads/css/question.jpg' %}" class="d-block w-100" alt="..." style="height: 675px; width: auto;">
+	      <div class="carousel-caption d-block" style="color: #dc3545">
+	        <h3>Having a Question?</h3>
+	        <p> Feel Free to ask in our Forum section</p>
+	      </div>
+	    </div>
+	  </div>
+	  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+	</div>
+
+	<p style="font-size: 200%; text-align: center;">Services we provide</p>
+
+	<div class="card-group">
+	  <div class="card shadow p-3 mb-5 bg-white rounded" style="margin-right: 5px; margin-left: 5px">
+	    <div class="card-body" style="background-color: rgba(85, 201, 32, 0.13)">
+	      <h3 class="card-title" style="color: rgba(71, 169, 40, 1)">Uploads</h3>
+	      <p class="card-text" style="color: rgba(71, 169, 40, 1);font-size : 110%">In this page you can upload your prescriptions<br> and reports which in turn can be useful in Future </p>
+	    </div>
+	  </div>
+	  <div class="card shadow p-3 mb-5 bg-white rounded" style="margin-right: 5px; margin-left: 5px">
+	    <div class="card-body" style="background-color: rgba(85, 201, 32, 0.13)">
+	      <h3 class="card-title" style="color: rgba(71, 169, 40, 1)">Tablet Notifications</h3>
+	      <p class="card-text" style="color: rgba(71, 169, 40, 1);font-size : 110%"> It is very normal to forget tablets in your daily life<br> That's why we keep notifing you the medicines you should take</p>
+	    </div>
+	  </div>
+	  <div class="card shadow p-3 mb-5 bg-white rounded" style="margin-right: 5px; margin-left: 5px">
+	    <div class="card-body" style="background-color: rgba(85, 201, 32, 0.13)">
+	      <h3 class="card-title" style="color: rgba(71, 169, 40, 1)">Forums</h3>
+	      <p class="card-text" style="color: rgba(71, 169, 40, 1);font-size : 110%">In these days Second opinions are quite often for <br> people and for middle class it may not be economic <br>So we have Forum section for you to ask your opinions</p>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="backimage">
+		<form class="container" id="myform" method="POST">
+			{% csrf_token %}
+			<p style="font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji; font-size: 130%">Feedback and Queries</p>
+		  <div class="form-row">
+		    <div class="form-group col-md-6">
+		      <label for="homefirstname">First Name</label>
+		      <input type="text" class="form-control" id="homefirstname" placeholder="First Name" name="first" required >
+		    </div>
+		    <div class="form-group col-md-6">
+		      <label for="homelastname">Last Name</label>
+		      <input type="text" class="form-control" id="homelastname" placeholder="Last Name" name="last" required >
+		    </div>
+		  </div>
+		  <div class="form-row">
+		    <div class="form-group col-md-6">
+		      <label for="inputEmail4">Email</label>
+		      <input type="email" class="form-control" id="inputEmail4" placeholder="abc@gmail.com" name="email" required >
+		    </div>
+		    <div class="form-group col-md-6">
+		      <label for="homemobile">Mobile</label>
+		      <input type="number" class="form-control" id="homemobile" placeholder="+91 **********" name="mobile">
+		    </div>
+		  </div>
+		  <div class="mb-3">
+		    <label for="validationTextarea">What's Your Query</label>
+		    <textarea class="form-control" id="validationTextarea" placeholder="write your query" style="height: 150px; width: 1110px" required  name="message"></textarea>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Send</button>
+		</form>
+	</div>
+	<div style="background-color: black;">
+	<footer class="container py-5" style="color:white">
+		<div class="row">
+		  <div class="col-12 col-md">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+			<small class="d-block mb-3 text-muted">&copy; 2017-2019</small>
+		  </div>
+		  <div class="col-6 col-md">
+			<h5>Features</h5>
+			<ul class="list-unstyled text-small">
+			  <li><a class="text-muted" href="#">Forums</a></li>
+			  <li><a class="text-muted" href="#">Reminders</a></li>
+			  <li><a class="text-muted" href="#">Quick uploads</a></li>
+			  <li><a class="text-muted" href="#">Accessible Everywhere</a></li>
+			  <li><a class="text-muted" href="#">Quick Appointments</a></li>
+			</ul>
+		  </div>
+		  
+		  <div class="col-6 col-md">
+			<h5>Resources</h5>
+			<ul class="list-unstyled text-small">
+			  <li><a class="text-muted" href="#">Business</a></li>
+			  <li><a class="text-muted" href="#">Doctors</a></li>
+			  <li><a class="text-muted" href="#">Government</a></li>
+			  <li><a class="text-muted" href="#">Medicine</a></li>
+			</ul>
+		  </div>
+		  <div class="col-6 col-md">
+			<h5>About</h5>
+			<ul class="list-unstyled text-small">
+			  <li><a class="text-muted" href="#">Team</a></li>
+			  <li><a class="text-muted" href="#">Locations</a></li>
+			  <li><a class="text-muted" href="#">Privacy</a></li>
+			  <li><a class="text-muted" href="#">Terms</a></li>
+			</ul>
+		  </div>
+		</div>
+	  </footer>
+	  </div>
+	</div>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{
+    "snippets" : [
+        {
+            "name" : "example",
+            "code" : [
+                "#hi",
+                "import this"
+            ]
+        },
+        {
+            "name" : "Fast AutoComplete",
+            "code" : [
+                "%config Completer.use_jedi = False"
+            ]
+        }
+    ]
+}

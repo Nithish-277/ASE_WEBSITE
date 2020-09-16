@@ -1,0 +1,92 @@
+{% extends "uploads/base.html" %}
+{% load static %}
+
+{% block style_base %}
+	<link rel="stylesheet" type="text/css" href="{% static 'uploads/css/notifs.css' %}">
+  {% endblock%}
+  
+{% block content %}
+<div  class="container">
+<h2 align="center">ADD YOUR REMINDER</h2>
+<p style="font-family:courier;">
+<ol><li>Click on the button at the bottom of this page to add your reminder</li>
+<li>Note that the button and the form is fixed - they will always be positioned to the bottom of the browser window.</li>
+</ol></p>
+</div>
+
+
+
+<button class="open-button" onclick="openForm()">ADD REMINDER</button>
+
+<div class="form-popup" id="myForm">
+ 
+  <form action="/action_page.php" class="form-container">
+    <h1>we'll remind you!!</h1>
+
+    <label ><b>problem name</b></label>
+    <input type="text" placeholder="Enter problem name" required>
+
+    <label ><b>medicine name</b></label>
+    <input type="text" placeholder="enter medicine name" required>
+ 
+    <label><b>start date</b></label>
+    <input type="date" id="reminder" name="reminder" required>
+    <br>
+    <br>
+ 
+    <label><b>end date</b></label>
+    <input type="date" id="reminder" name="reminder" required>
+    <br>
+    <br>
+    <label for="appt"><b>Select a time:</b></label>
+  <input type="time" id="appt" name="appt" required>
+   <br>
+                                            
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">FREQUENCY
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li>1hr</li>
+      <li>2hr</li>
+      <li>3hr</li>
+      <li>4hr</li>
+      <li>5hr</li>
+      <li>6hr</li>
+      <li>7hr</li>
+      <li>8hr</li>
+      <li>9hr</li>
+      <li>10hr</li>
+      <li>11hr</li>
+      <li>12hr</li>
+      <li>13hr</li>
+      <li>14hr</li>
+      <li>15hr</li>
+      <li>16hr</li>
+      <li>17hr</li>
+      <li>18hr</li>
+      <li>19hr</li>
+      <li>20hr</li>
+      <li>21hr</li>
+      <li>22hr</li>
+      <li>23hr</li>
+      <li>24hr</li>
+    </ul>
+</div>
+     <br>
+
+
+    <button type="submit" class="btn">ADD</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+{% endblock %}

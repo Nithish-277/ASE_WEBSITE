@@ -1,0 +1,79 @@
+{% extends "uploads/base.html" %}
+{% load static %}
+{% block style_base %}
+<link rel="stylesheet" type="text/css" href="{% static 'uploads/css/style.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+
+<body>
+    <div class="main-bg">
+        <div class="sub-main-w3">
+            <div class="image-style">
+            </div>
+            <div class="vertical-tab">
+                <div id="section1" class="section-w3ls">
+                    <input type="radio" name="sections" id="option1" checked>
+                    <label for="option1" class="icon-left-w3pvt"><span class="fas fa-file-medical"
+                            aria-hidden="true"></span>Report</label>
+                    <article>
+                        <form action="/editreport/{{post.id}}/" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                        <h3 class="legend">Edit Reports Here</h3>
+                        <p>Diagnostic Centre</p>
+                        <div class="input">
+                            <input name="diagnostics_name" type="text" class="form-control" id="diagnostics_name"
+                                value="{{post.diagnostics_name}}" required>
+                        </div>
+                        <p>Disease</p>
+                        <div class="input">
+                            <input name="report_type" type="text" class="form-control" id="report_type" value="{{post.report_type}}" required>
+                        </div>
+                        <p>Date</p>
+                        <div class="input">
+                            <input name="date" type="date" class="form-control" id="date" value='{{date}}' required>
+                        </div>
+                        <p>Choose Your Report :
+                            <a href="{{post.report_file.url}}" target="_blank">Present File</a></p>
+                        <div class="input">
+                            <input name="report_file" type="file" class="form-control-file" id="FormControlFile1" value = '{{post.file}}'>
+                        </div>
+                            <button type="submit" class="btn submit">Save</button>
+                        </form>
+                    </article>
+                </div>
+                <!-- <div id="section1" class="section-w3ls">
+					<label for="option1" class="icon-left-w3pvt"><span class="fas fa-prescription" aria-hidden="true"></span>Prescriptions</label>
+					<article>
+                        <form action="/editreport/{{post.id}}/" method="POST" enctype="multipart/form-data">
+							<h3 class="legend">Edit Reports Here</h3>
+							<p>Diagnostic Centre</p>
+							<div class="input">
+								<input name="diagnostics_name" type="text" class="form-control" id="diagnostics_name" value="{{post.diagnostics_name}}" required>
+							</div>
+							<p>Disease</p>
+							<div class="input">
+								<input name="report_type" type="text" class="form-control" id="report_type" value="{{post.report_type}}" required>
+							</div>
+							<p>Date</p>
+							<div class="input">
+								<input name="date" type="date" class="form-control" id="date" value="{{post.date}}" required>
+							</div>
+							<p>Choose Your Report</p>
+							<div class="input">
+								<input name="report_file" type="file" class="form-control-file" id="FormControlFile1">
+							</div>
+							<button type="submit" class="btn submit">Submit</button>
+						</form>
+					</article>
+				</div> -->
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

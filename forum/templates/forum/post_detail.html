@@ -1,0 +1,42 @@
+{% extends "uploads/base.html" %}
+{% block content %}
+  <article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ object.author.userprofileinfo.profile_pic.url }}">
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="#">{{ object.author }}</a>
+        <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+      </div>
+      <h2 class="article-title">{{ object.title }}</h2>
+      <p class="article-content">{{ object.content }}</p>
+      {% if object.author == user %}
+          <div>
+            <a class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+          </div>
+        {% endif %}
+    </div>
+    
+  </article>
+    <hr>
+    <a class="btn btn-outline-primary" href="{% url 'add_comment_to_post' pk=post.pk %}">Add Comments Here..</a>
+    <br>
+    {% for comment in post.comments.all %}
+    {% if user.is_authenticated or comment.approved_comment %}
+    <div class="comment">
+        <div class="date">
+            {{ comment.created_date }}
+        </div>
+        <strong>{{ comment.author }}</strong>
+        <p>{{ comment.text|linebreaks }}</p>
+        {% if not comment.approved_comment %}
+                <a class="btn btn-danger" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span>Delete</a>
+                <a class="btn btn-success" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span>Approve Comment</a>
+            {% endif %}
+    </div>
+    {% endif %}
+    <br>
+    {% empty %}
+        <p>No comments here yet :(</p>
+    {% endfor %}
+{% endblock content %}

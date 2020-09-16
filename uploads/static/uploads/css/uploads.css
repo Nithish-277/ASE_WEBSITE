@@ -1,0 +1,117 @@
+
+body{
+	background-image:  url('uploads-background.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+
+}
+
+.bg-text{
+	background-color: #dee2e6a1;
+    
+    
+	height:600px;
+	width: 80%;
+	margin-top: 100px;
+	margin-left: 40px;
+	border-style: groove;
+	border-color: #e9efeb2e;
+	border-width: 1px;
+/*	margin-bottom: 30%;
+*/
+}
+
+.prescription-text{
+
+	background-color: #dae0e5b0;
+
+	height: 190px;
+	width:60%;
+	
+	font-size: 20px;
+	margin-top: 150px;
+	padding-left: 10px;
+
+	text-shadow: 0.5px 0.5px black;
+	word-spacing: 4px;
+
+	
+
+	
+
+}
+.bg1-text{
+	background-color: #dee2e6a1;
+    /* height:600px; */
+	width: 80%;
+	margin-top: 10%;
+	
+	margin-left: 12%;
+	margin-bottom: 100px;
+	border-style: groove;
+	border-color: #e9efeb2e;
+	border-width: 1px;
+
+}
+
+.report-text{
+	background-color: #dae0e5b0;
+	height: 190px;
+	width:60%;
+	margin-left: 40px;
+	margin-top: 20%;
+	font-size: 20px;
+	text-shadow: 0.5px 0.5px black;
+	word-spacing: 4px;
+	padding: 10px;
+
+
+}
+
+.bg2-text{
+	background-color: #dee2e6a1;
+	height:510px;
+	float: left;
+	width: 40%;
+	margin-top: 10%;
+	margin-left: 40px;
+	margin-bottom: 100px;
+}
+
+.upload_heading {
+	color: #212925f2;
+	text-align: center;
+	font-size: 35px;
+	text-shadow: 0.5px 0.5px #2129257a;
+}
+
+
+.form-group
+{
+	margin-left: 30px;
+	margin-top: 20px;
+
+}
+.form-group input[type=text]{
+	margin-top: 0px;
+	width: 90%;
+
+
+}
+.form-group label
+{
+	
+	color: #212529;
+	font-size: 18px;
+	text-shadow: 0.5px 0.5px #2129257a;
+
+}
+
+.search_dd
+{
+	margin-left: 193px;
+	margin-top: 50px;
+	width: 100px;
+}
+

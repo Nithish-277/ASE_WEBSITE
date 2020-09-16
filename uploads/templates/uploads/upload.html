@@ -1,0 +1,132 @@
+{%extends "uploads/base.html"%}
+{% load static %}
+
+{% block style_base %}
+	<link rel="stylesheet" type="text/css" href="{% static 'uploads/css/uploads.css' %}">
+{% endblock %}
+{%block content%}
+	{% for message in messages %}
+			<div class="alert {{ message.tags }} alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+				{{ message }}
+			</div>
+		{% endfor %}
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="thumbnail">
+
+	        <div class="bg-text">
+				<div class="upload_heading">
+
+
+					<p><i class="fas fa-prescription"></i>	Prescriptions </p>
+
+				</div>
+				<form method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+
+					<div class="form-group">
+					    <label for="HospName">Hospital Name</label>
+					    <input name="hospital_name" type="text" class="form-control" id="hospital_name" placeholder="Enter hospital name" required>
+		            </div>
+		            <div class="form-group">
+					    <label for="Disease">Disease</label>
+					    <input name="disease_name" type="text" class="form-control" id="disease_name" placeholder="Enter hospital name" required>
+					</div>
+					<div class="form-group">
+					    <label for="Date">Date</label>
+					    <input name="date" type="date" class="form-control" id="date" placeholder="Enter date" required>
+		            </div>
+
+					
+					<div class="form-group">
+					    <label for="UploadPres">Prescription</label>
+					       <input name="prescription_file" type="file" class="form-control-file" id="FormControlFile1" required>
+	                </div>
+	                <div class="form-group">
+
+	                    <button type="submit" class="btn btn-primary">Submit</button>
+	                </div>    
+				
+			  </form>
+			</div>
+			</div>
+		</div>
+		<div class="col-lg-6">
+		
+		    <div class="prescription-text">
+				<p>It's okay to scatter your Documents and Medical reports in your busy life. 
+				We are there for you to keep your Medical reports Organised. So Why late? Just upload your prescriptions here</p>
+			</div>
+		</div>
+	</div>	
+		
+
+	<div class="row">
+		<div class="col-lg-6">
+
+
+			<div class="report-text">
+		    	<p>Today it's not easy to carry Reports everywhere you go
+	               so here we are to carry your reports in a feasible way
+	              Just Upload your reports here to make it handy to you</p>
+		    </div> 
+	    </div>
+
+
+        <div class="col-lg-6">
+		
+		     <div class="bg1-text">
+
+		    	<div class="upload_heading">
+					<p><i class="fas fa-file-medical"></i>	Reports</p>
+				</div>
+				<form  method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+
+					<div class="form-group">
+					    <label for="Diagname">Diagnostics Name</label>
+					    <input name="diagnostics_name" type="text" class="form-control" id="diagnostics_name" placeholder="Enter diagnostic center name" required>
+		            </div>
+		            <div class="form-group">
+					    <label for="Report-type">Report type</label>
+					    <input name="report_type" type="text" class="form-control" id="report_type" placeholder="Enter report type" required>
+					</div>
+					
+
+		            <div class="form-group">
+					    <label for="Date">Date</label>
+					    <input name="date" type="date" class="form-control" id="date" placeholder="Enter date" required>
+		            </div>
+
+					
+					<div class="form-group">
+					    <label for="UploadReport">Reports</label>
+					       <input name="report_file" type="file" class="form-control-file" id="FormControlFile1">
+	                </div>
+	                
+	                
+	                <div class="form-group">
+
+	                    <button type="submit" class="btn btn-primary">Submit</button>
+	                </div>    
+				
+			  </form>
+
+			  </div>
+
+    
+	    	
+	    </div>
+	</div>
+
+{%endblock%}   
+
+	    
+	    
+
+</body>
+</html>
+

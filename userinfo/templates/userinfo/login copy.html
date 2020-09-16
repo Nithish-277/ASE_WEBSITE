@@ -1,0 +1,49 @@
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>Login</title> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+</head> 
+<body> 
+	<div class="container text-center" style="color:green"> 
+	</div> 
+<div class="container" style="width: 808px;height:50px; padding:90px 0;margin-left:20px;margin-bottom:30px;">
+<div class="jumbotron">  
+	<form method="POST" class="form-vertical">
+    {% csrf_token %} 
+		<div class="form-group has-success"> 
+			<label class="control-label col-sm-3" for="id1"></label> 
+			<div class="col-sm-4" style="width: 60%;padding: 12px 20px;display: inline-block;box-sizing: border-box"> 
+				<input class="form-control" name = "username" type="text" id="id1" placeholder="Username or email"> 
+			</div> 
+		</div> 
+		<div class="form-group has-success"> 
+			<label class="control-label col-sm-3" for="pwd"></label> 
+			<div class="col-sm-4" style="width: 60%;padding: 12px 20px;"> 
+				<input class="form-control" type="password" name="password" id="pwd" placeholder="Password"> 
+			</div> 
+		</div>
+		<br></br>
+		<div class="container"> 
+			<div class="form-group">
+		    <div class="col-sm-offset-3 col-sm-6">
+		    	<p>
+		      <button type="submit" class="btn btn-success" style="background-color: #4CAF50;color: white;padding: 12px 20px;border: none;cursor: pointer; width: 125%">Login</button></p>
+		    	<label style="font-weight:500;font-size: 12px;position: relative;top: -5pxs;vertical-align: middle;">
+        <input type="checkbox" checked="checked" name="remember">Remember me
+      </label>
+      <span class="psw"><a href="#"><u style="margin-left :60px;">Forgot password?</u></a></span>
+		      <h4 style="text-align: center;padding-left: 10px 0  ">----------------------or-------------------</h4>
+		      <p><font size="+0">&nbsp;Don't have an account ? <a href="#"><u>create account</u></a></font></p></p>
+		    </div>
+		</div>
+		</div>
+		<div >
+		  </div>
+	</form>
+</div>
+</div> 
+
+</body> 
+</html> 

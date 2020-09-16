@@ -1,0 +1,19 @@
+{% extends 'uploads/base.html' %}
+
+{% block content %}
+    <!-- <h1 class = "text-info">New comment</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-success">Send</button>
+    </form> -->
+    <h1 class = "text-center text-info">New Comment</h1>
+    <form method="POST" class="post-form"><input type="hidden" name="csrfmiddlewaretoken" value="q8vXTKNq6dDTPKAaoAyjt92gOO43d3GhwBWjCZicI2MZkkQ7gY5gAWLZ8Alg5Muv">
+        {% csrf_token %}
+        <p class = "text-center mt-5"><label for="id_author"><strong>Author:</strong></label> <input type="text" name="author" maxlength="200" required id="id_author"></p>
+        <p class = "text-center mt-5"><label for="id_text"><strong>Text:</strong> </label> <textarea name="text" cols="40" rows="5" required id="id_text">
+        </textarea></p>
+    <div class = "text-center">
+        <button type="submit" class="save btn btn-success btn-lg">Send</button>
+    </div>
+    </form>
+{% endblock %}

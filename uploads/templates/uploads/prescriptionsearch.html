@@ -1,0 +1,135 @@
+{% extends "uploads/base.html" %}
+
+{% block style_base %}
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,800' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block content %}
+    {% for message in messages %}
+    <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    {{ message }}
+    </div>
+    {% endfor %}
+      <main role="main" class="container">
+        <div class="rounded-pill" style="padding-top: 1em;margin-top: 1em; margin-bottom: 5em; padding-right: 6em; padding-left: 6em; background-color: #f5f8ff;">
+        <h3>Filter Journals</h3>
+        <form method="GET" action=".">
+            {% csrf_token %}
+          <div class="form-row">
+              <div class="form-group col-12">
+                  <div class="input-group">
+                      <input class="form-control py-2 border-right-0 border" type="search" name="hospital_name" placeholder="hospital_name" />
+                      <span class="input-group-append">
+                          <div class="input-group-text bg-transparent">
+                              <i class="fa fa-search"></i>
+                          </div>
+                      </span>
+                  </div>
+              </div>        
+          </div>
+          <div class="form-row">
+              <div class="form-group col-12">
+                  <div class="input-group">
+                      <input class="form-control py-2 border-right-0 border" type="search" name="disease_name" placeholder="disease_name" />
+                      <span class="input-group-append">
+                          <div class="input-group-text bg-transparent">
+                              <i class="fa fa-search"></i>
+                          </div>
+                      </span>
+                  </div>
+              </div>        
+          </div>
+        <div class="form-row">
+            <div class="form-group col-md-4 col-lg-4">
+            <label for="date_min">From Date</label>
+            <input type="date" class="form-control" id="date_min" name="date_min">
+            </div>
+            <div class="form-group col-md-4 col-lg-4">
+            <label for="date_min">To Date</label>
+            <input type="date" class="form-control" id="date_max" name="date_max">
+            </div>
+            <div class="form-group col-md-4 col-lg-4" style="padding-top: 2em; padding-left: 2em;">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+        </form>
+    </div>
+        <h2 style="	font-family: Raleway;
+        margin-left: 1.66%;
+        font-size: 23px;
+        font-weight: 800;
+        text-transform: uppercase;
+        border-bottom: 2px solid #f1f1f1;
+        width: 30%;
+        padding-bottom: 5px;margin-bottom: 15px;">Prescriptions</h2>
+        <table class="table  table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Hospital Name</th>
+                    <th>Disease Name</th>
+                    <th>Date</th>
+                    <th>Download</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+        
+            </thead>
+            <tbody>
+                {% for file in prescriptions %}
+                <tr>
+                    <td>{{file.hospital_name}}</td>
+                    <td>{{file.disease_name}}</td>
+                    <td>{{file.date}}</td>
+                    <td>
+                        <a href="{{file.prescription_file.url}}" class ="btn btn-primary btn-sm" target="_blank">Download File</a>
+                        
+                    </td>
+                    <td>
+                        <form method="post" action="{% url 'delete_prescription' file.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="edit" action="{% url 'edit_prescription' file.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-warning btn-sm">Edit</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+
+<p>
+    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseExample"
+        aria-expanded="false" aria-controls="collapseExample" data-toggle="tooltip" data-placement="top"
+        title="Get notified when to go to Hospital again">
+        Set Reminder
+    </button>
+</p>
+<div class="collapse" id="collapseExample">
+    <div class="card card-body">
+        <form method="POST">
+            {% csrf_token %}
+            <h4>When to go to hospital again?</h4>
+            <label><b>Date</b></label>
+            <input type="date" id="date" name="date" required>
+            <br>
+            <br>
+            <label><b>Mail you want to be notified</b></label>
+            <input type="email" id="email" name="email" required placeholder="Enter your mail to get notifications">
+            <br>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary">Add Reminder</button>
+        </form>
+    </div>
+</div>
+
+{%endblock%}
+

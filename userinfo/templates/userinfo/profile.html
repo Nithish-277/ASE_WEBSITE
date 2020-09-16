@@ -1,0 +1,69 @@
+{% extends "uploads/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<style type="text/css">
+body{
+margin: 0px;
+padding: 0px;
+background: #c0dbd4da;
+font-family: arial;
+/* box-sizing: border-box; */
+}
+
+ .card-container{
+/* width: 800px;
+height: 600px; */
+/* background: #FFF; */
+/* border-radius: 6px; */
+width: 50%;
+position: absolute;
+top: 20%;
+left: 50%;
+transform: translate(-50%,-50%);
+/* box-shadow: 1px 1px 1px 1px #000; */
+/* overflow: hidden; */
+/* display: inline-block; */
+}
+.upper-container{
+height: 150px;
+background: #6bacac;
+}
+.media{
+width: 180px;
+height: 150px;
+border-radius: 50%;
+}
+.formbox {
+  color: rgb(6, 67, 75);
+  font-weight: 500;
+}
+</style>
+
+<div class="card-container">
+         <div class="upper-container">
+            <div class="media">
+              <img class="rounded-circle account-img" style="height: 90px; width: 90px;" src="{{ user.userprofileinfo.profile_pic.url }}">
+              <div class="media-body ml-5">
+                <h2 class="account-heading">{{ user.username }}</h2>
+                <p class="text-secondary">{{ user.email }}</p>
+              </div>
+            </div>
+            
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Profile Info</legend>
+                    <div class = "formbox">
+                    {{ u_form|crispy }}
+                    </div>
+                    <div></div>
+                    {{ p_form|crispy }}
+          </fieldset>
+          <div class="form-group">
+              <button class="btn btn-success" type="submit">Update</button>
+          </div>
+      </form>
+    
+  </div>
+{% endblock content %}
